@@ -1,24 +1,36 @@
-#N canvas 162 246 450 300 10;
+#N canvas 156 249 647 391 10;
 #X obj 79 35 inlet;
 #X obj 133 35 inlet;
 #X msg 148 194 start 0;
 #X msg 209 194 stop;
 #X obj 186 35 inlet;
-#X obj 142 124 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 136 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 181 124 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 166 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X msg 257 215 set loop-buffer\$1;
-#X obj 164 266 tabwrite~;
+#X obj 144 246 tabwrite~;
 #X obj 24 35 inlet~;
-#X text 104 123 line;
-#X text 131 141 start;
-#X text 211 123 chan;
-#X text 175 141 stop;
+#X text 103 123 line;
+#X text 125 142 start;
+#X text 206 144 chan;
+#X text 160 142 stop;
 #X obj 119 160 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
+-1 -1 0;
 #X obj 257 188 + 1;
 #X obj 266 250 print dbg;
+#X obj 126 274 outlet~;
+#X floatatom 210 125 5 0 0 0 - - -;
+#X obj 389 62 list split 1;
+#X obj 389 86 sel 0;
+#X obj 427 86 list split 1;
+#X obj 389 38 r mix-broadcast;
+#X obj 428 131 f;
+#X obj 427 108 sel channel-gain;
+#X obj 26 86 *~ 1;
+#X obj 388 184 / 100;
+#X obj 313 31 loadbang;
+#X obj 389 158 100;
 #X connect 0 0 5 0;
 #X connect 1 0 6 0;
 #X connect 2 0 8 0;
@@ -28,7 +40,22 @@
 #X connect 6 0 3 0;
 #X connect 7 0 8 0;
 #X connect 7 0 16 0;
-#X connect 9 0 8 0;
+#X connect 9 0 25 0;
 #X connect 14 0 15 0;
 #X connect 15 0 7 0;
+#X connect 15 0 20 1;
+#X connect 18 0 25 1;
+#X connect 19 0 20 0;
+#X connect 19 1 21 0;
+#X connect 20 0 28 0;
+#X connect 21 0 24 0;
+#X connect 21 1 23 1;
+#X connect 22 0 19 0;
+#X connect 23 0 28 1;
+#X connect 24 0 23 0;
+#X connect 25 0 8 0;
+#X connect 25 0 17 0;
+#X connect 26 0 18 0;
+#X connect 27 0 28 0;
+#X connect 28 0 26 0;
 #X coords 0 -1 1 1 150 80 1 100 100;
